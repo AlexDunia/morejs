@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+  </head>
+  <body>
+    <form>
+        <input placeholder="Enter text here" type="text" class="ent">
+        <button class="check"> Check </button>
+        <h3 class="textt"> </h3>
+    </form>
+
+    <script>
+        let btn = document.querySelector('.check');
+
+        btn.addEventListener('click', (e)=> {
+         e.preventDefault();
+         let myin = document.querySelector('.ent').value;
+         let text = document.querySelector('.textt');
+         let len = myin.length;
+         let start = myin.substring(0, 2);
+        let end = myin.substring(len-2, len);
+        // In order to extract the last two characters of a string using substring(),
+        // we need to find the index of the second-last character in the string,
+        // and include the last character as well.
+
+        let ed = end.split('').reverse().join('');
+        if(start == ed){
+            text.innerHTML = `${myin} is a palindrome`
+            // the `${}` is simply a template literal.
+            console.log("is a palindrome")
+        }else{
+            text.innerHTML = `${myin} is not a palindrome`
+            console.log("is not a palindrome")
+        }
+         console.log(end);
+        })
+
+
+    </script>
+</body>
+</html>
