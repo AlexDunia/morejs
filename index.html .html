@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+  </head>
+  <body>
+    <!-- <h1> Counter app </h1>
+    <h2 class="number">0</h2>
+    <button class="btn"> Run randomizer </button> -->
+
+    <!-- Next is the app that removes background color -->
+    <div>
+        <h1 class="rn"> </h1>
+    </div>
+
+    <button class="rc"> Click to change </button>
+
+    <script>
+        // const num = document.querySelector(".number");
+        // const btn = document.querySelector(".btn");
+
+        // btn.addEventListener('click', ()=> {
+        //     // I think we should be able to run a randomiser now.
+        //     num.innerHTML = Math.floor(Math.random() * 10);
+        //     // Note that math.random is actually a function.
+        //     // const rm = Math.floor(Math.random() * 10);
+        //     // // Another thing worth noting is that the html in the inner html should be capitalized.
+        //     // num.innerHTML = rm;
+        //     console.log("Dunia is a genius");
+        // });
+
+
+        let num = document.querySelector(".rn");
+        let btn = document.querySelector(".rc");
+
+        const changec = ()=> {
+            const rm = Math.random().toString(15).substring(2,8);
+            // Substring is not in camel case, why?
+            console.log(rm)
+            document.body.style.backgroundColor = "#" + rm;
+            num.innerHTML = "#" + rm;
+        }
+
+        btn.addEventListener('click', changec);
+
+        changec();
+
+
+    </script>
+  </body>
+  </html>
