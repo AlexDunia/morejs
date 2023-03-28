@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+  </head>
+  <body>
+    <form>
+        <input placeholder="Enter text here" type="text" class="ent">
+        <button class="check"> Check </button>
+        <h3 class="textt"> </h3>
+    </form>
+
+    <script>
+        let btn = document.querySelector('.check');
+        let text = document.querySelector('.textt');
+        let myin = document.querySelector('.ent');
+
+        myin.addEventListener('keyup', ()=> {
+            text.innerHTML = myin.value.length
+            // const a = myin.value.length;
+            // myin.value = a;
+            // // myin.value = a
+
+            // console.log(a)
+            // // text.innerHTML = `${b}`
+            // text.textContent = a
+
+
+//             const inputLength = myin.value.length;
+//   myin.value = inputLength;
+//   text.textContent = inputLength;
+
+
+            // let in = myin.value,
+            // console.log(in)
+            // myin.value = myin.length
+            // text.innerHTML = `${myin}`
+            // console.log("works")
+        });
+
+        // btn.addEventListener('click', (e)=> {
+        //  e.preventDefault();
+        //  let myin = document.querySelector('.ent').value;
+        //  let text = document.querySelector('.textt');
+        //  let st = myin.length
+        //  text.innerHTML = `${st}`
+        // })
+
+
+    </script>
+</body>
+</html>
