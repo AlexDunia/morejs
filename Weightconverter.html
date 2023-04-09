@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+  </head>
+  <body>
+    <form class="myf">
+
+        <div>
+            <label class="formlabel"> Weight in Pounds </label>
+            <input type="number" placeholder="pound" class="pound"/>
+        </div>
+
+        <div>
+            <label class="formlabel"> Weight in Kilograms </label>
+            <input type="number" placeholder="Kilogram" class="kilo"/>
+        </div>
+
+        <div>
+        <label class="formlabel"> Weight in Grams </label>
+        <input type="number" placeholder="grams" class="gram"/>
+        </div>
+
+        <div>
+            <label class="formlabel"> Weight in Ounces </label>
+            <input type="number" placeholder="ounces" class="ounce"/>
+        </div>
+        <!-- <input placeholder="Enter text here" type="text" class="ent">
+        <button class="check"> Check </button>
+        <h3 class="textt"> </h3> -->
+    </form>
+
+    <script>
+        let myform = document.querySelector('.myf');
+        let pound = document.querySelector('.pound');
+        let kilo = document.querySelector('.kilo');
+        let gram = document.querySelector('.gram');
+        let ounce = document.querySelector('.ounce');
+
+        myform.addEventListener('keyup', (e)=> {
+          if(e.target.classList.contains('pound')){
+            let x = e.target.value;
+            kilo.value = x / 2.2046;
+            gram.value = x / 0.0022046;
+            ounce.value = x * 16;
+          }
+
+          if(e.target.classList.contains('kilo')){
+            let x = e.target.value;
+            pound.value = x * 2.2046;
+            gram.value = x * 1000;
+            ounce.value = x * 35.274;
+          }
+
+          if(e.target.classList.contains('gram')){
+            let x = e.target.value;
+            kilo.value = x / 1000;
+            pound.value = x * 0.0022046;
+            ounce.value = x * 0.035274;
+          }
+
+          if(e.target.classList.contains('ounce')){
+            let x = e.target.value;
+            kilo.value = x / 35.274;
+            gram.value = x / 0.035274;
+            pound.value = x * 0.0625;
+          }
+        })
+    </script>
+</body>
+</html>

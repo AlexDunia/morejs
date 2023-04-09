@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+  </head>
+  <style>
+
+  :root{
+    --color-light: orange;
+    --background:red;
+    --foreground-color:orange;
+  }
+
+  .bd{
+    width:100%;
+    background: var(--background);
+    color: var(--foreground-color);
+  }
+
+  .change{
+    --color-light: green;
+    --background:purple;
+  }
+
+  </style>
+  <body>
+    <!-- first thing is to establish the classes involved.  -->
+    <div class="bd">
+     <h1> Works, brah </h1>
+     <button class="btn"> Works </button>
+    </div>
+
+    <script>
+
+    // what is hapening here?
+    // There are two states of our local storage. null and y,
+    // we are getting a local storage that should be y
+    let btn = document.querySelector(".btn")
+    let items = localStorage.getItem("msc")
+    // This needs to be gotten so we can set a condition with the variable.
+
+    if(items === "y"){
+        document.body.classList.add("change");
+    }else{
+        console.log("yhup")
+        document.body.classList.add("bd");
+    }
+    // automatically, items is y and we have d change class
+    // so if it sctauuly y we want to remove the change, if the chnage is removed, we now have the bd.
+    // so the else statement would be to add the change;
+
+    btn.addEventListener("click", function(){
+        let items = localStorage.getItem("msc")
+        if(items === "y"){
+            // if i click it and it is equals to y, which is the default, then I want to
+            // set a new item and remove class
+            let items = localStorage.setItem("msc", null)
+            document.body.classList.remove("change");
+            // if it y we need to add change, if it not change, it will be bd.
+            // classlist does not need a dot, that is why my code was not working.
+        }else{
+            document.body.classList.add("change");
+            document.body.classList.remove("bd");
+            localStorage.setItem("msc", "y")
+        }
+
+
+    })
+
+    </script>
+  </body>
+  </html>

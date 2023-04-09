@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+  </head>
+  <body>
+
+    <form>
+
+        <div>
+        <label for=""> Bill: </label>
+        <input placeholder="Enter text here" class="bill" type="number">
+       </div>
+
+       <div>
+        <label for=""> Rate Service </label>
+        <select name="" class="rate" type="number">
+
+            <option disabled selected value="0">
+                -- Select an option --
+            </option>
+
+            <option value="0.15"> 15% - Excellent </option>
+            <option value="0.1"> 10% - Good </option>
+            <option value="0.05"> 5% - Fair </option>
+
+        </select>
+       </div>
+       <button class="check"> Calculate </button>
+    </form>
+
+    <div>
+        <p class="err"> </p>
+        <p class="tip"> </p>
+        <p class="total"> </p>
+    </div>
+
+    <script>
+
+let btn = document.querySelector('.check');
+        btn.addEventListener('click', (e)=> {
+            e.preventDefault();
+            // The value returned by the .value property is always a string.
+            // And so, If you want to perform mathematical operations on the value,
+            // you need to convert it to a numeric type, such as float or int,
+            // using functions like parseFloat() or parseInt().
+            let therate = parseFloat(document.querySelector('.rate').value);
+            let thebill = parseFloat(document.querySelector('.bill').value);
+            let thetip = document.querySelector('.tip');
+            let thetotal = document.querySelector('.total');
+            let error = document.querySelector('.err');
+            if(thebill === "" || therate===""){
+                error.innerHTML = "Please add valid numbers"
+            }else{
+                let a = thebill * therate;
+                let ab = Math.ceil(a)
+                thetip.innerHTML = `${ab}`;
+                let b = thebill + ab;
+                console.log(thebill);
+
+                thetotal.innerHTML = `${b}`;
+            }
+        })
+
+        // let btn = document.querySelector('.check');
+        // btn.addEventListener('click', (e)=> {
+        //     e.preventDefault();
+        //     let therate = document.querySelector('.rate').value;
+        //     let thebill = document.querySelector('.bill').value;
+        //     let thetip = document.querySelector('.tip');
+        //     let thetotal = document.querySelector('.total');
+        //     let error = document.querySelector('.err');
+        //     // let a = thebill * therate
+        //     // console.log(a)
+        //     if(thebill === 0 || therate===0){
+        //         error.innerHTML = "Please add valid numbers"
+        //     }else{
+        //         let a = thebill * therate;
+        //         let ab = Math.ceil(a)
+        //         thetip.innerHTML = `${ab}`;
+        //         let b = thebill + ab;
+        //         console.log(thebill);
+
+        //         thetotal.innerHTML = `${b}`;
+        //     }
+        // })
+
+
+
+
+
+
+
+        // let btn = document.querySelector('.check');
+        // btn.addEventListener('click', (e)=> {
+        //  e.preventDefault();
+        //  let myin = document.querySelector('.ent').value;
+        //  let text = document.querySelector('.textt');
+        //  let len = myin.length;
+        //  let start = myin.substring(0, 2);
+        // let end = myin.substring(len-2, len);
+        // let ed = end.split('').reverse().join('');
+        // if(start == ed){
+        //     text.innerHTML = `${myin} is a palindrome`
+        //     // the `${}` is simply a template literal.
+        //     console.log("is a palindrome")
+        // }else{
+        //     text.innerHTML = `${myin} is not a palindrome`
+        //     console.log("is not a palindrome")
+        // }
+        //  console.log(end);
+        // })
+
+    </script>
+</body>
+</html>
